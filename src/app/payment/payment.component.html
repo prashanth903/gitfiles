@@ -1,0 +1,78 @@
+
+<h3>Payments</h3>
+<div [hidden]="submitted" style="width: 300px;" class="center"> 
+  <form (ngSubmit)="onSubmit()" [formGroup]="payform">
+    <div class="form-group" >
+      <label for="nameOnCard">nameOnCard</label>
+      <input type="text" class="form-control" id="nameOnCard" formControlName="nameOnCard" required [(ngModel)]="payment.nameOnCard" name="nameOnCard">
+    </div>
+
+    <div *ngIf="payform.controls['nameOnCard'].invalid && (payform.controls['nameOnCard'].dirty || payform.controls['nameOnCard'].touched)" class="alert alert-danger">
+			  <div *ngIf="payform.controls['nameOnCard'].errors.required">
+			    <b>  nameOnCard is required.</b>
+        </div>
+        
+		</div>
+
+
+    <div class="form-group">
+      <label for="creditCardNumber">creditCardNumber</label>
+      <input type="text" class="form-control" id="creditCardNumber" formControlName="creditCardNumber" required [(ngModel)]="payment.creditCardNumber" name="creditCardNumber">
+    </div>
+
+    <div *ngIf="payform.controls['creditCardNumber'].invalid && (payform.controls['creditCardNumber'].dirty || payform.controls['creditCardNumber'].touched)" class="alert alert-danger">
+			  <div *ngIf="payform.controls['creditCardNumber'].errors.required">
+			    <b>  creditCardNumber is required.</b>
+			  </div>
+		
+		</div>
+
+	<div class="form-group">
+      <label for="expMonth">expMonth</label>
+      <input type="text" class="form-control" id="expMonth" formControlName="expMonth" required [(ngModel)]="payment.expMonth" name="expMonth">
+    </div>
+
+    <div *ngIf="payform.controls['expMonth'].invalid && (payform.controls['expMonth'].dirty || payform.controls['expMonth'].touched)" class="alert alert-danger">
+			  <div *ngIf="payform.controls['expMonth'].errors.required">
+			    <b>  expMonth is required.</b>
+			  </div>
+		
+		</div>
+
+    <div class="form-group">
+      <label for="expYear">expYear</label>
+      <input type="text" class="form-control" id="expYear" formControlName="expYear" required [(ngModel)]="payment.expYear" name="expYear">
+    </div>
+
+    <div *ngIf="payform.controls['expYear'].invalid && (payform.controls['expYear'].dirty || payform.controls['expYear'].touched)" class="alert alert-danger">
+			  <div *ngIf="payform.controls['expYear'].errors.required">
+			    <b>  expYear is required.</b>
+			  </div>
+		
+    </div>
+    
+
+    <div class="form-group">
+      <label for="cvv">cvv</label>
+      <input type="text" class="form-control" id="cvv" formControlName="cvv" required [(ngModel)]="payment.cvv" name="cvv">
+    </div>
+
+    <div *ngIf="payform.controls['cvv'].invalid && (payform.controls['cvv'].dirty || payform.controls['cvv'].touched)" class="alert alert-danger">
+			  <div *ngIf="payform.controls['cvv'].errors.required">
+			    <b>  cvv is required.</b>
+			  </div>
+		
+    </div>
+    <div class="form-group">
+  <input type="submit" [disabled]="payform.pristin || payform.invalid" value="submit checkout form">
+        
+    </div>
+  </form>
+</div>
+
+
+<div *ngIf=check>
+  <h4>You submitted successfully!</h4>
+ 
+  <a [routerLink]="['/couponret']" class="btn btn-success" role="button" routerLinkActive="active">click to generate coupon</a>
+</div>

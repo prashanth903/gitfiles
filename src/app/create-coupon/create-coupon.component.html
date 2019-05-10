@@ -1,0 +1,22 @@
+<h3><b>ADD COUPON</b> <h3>
+<div class="login-page">
+    <div class="form">
+      
+      <form class="login-form" (ngSubmit)="onSubmit()" ngNativeValidate>
+          <input type="text" id="name" name="name" [(ngModel)]="coupon.name" placeholder="name" required>
+          <!-- <input type="text" id="category" name="category" [(ngModel)]="coupon.category" placeholder="Category"  required> -->
+          <select name="category" class="bsdk"  [(ngModel)]="coupon.category">
+              <option [ngValue]="undefined" hidden selected>--Category-- </option>
+              <option value="Shopping">Shopping</option>
+              <option value="Food">Food</option>
+              <option value="Travel">Travel</option>
+              <option value="Fitness">Fitness</option>
+            </select>
+          <input type="number"  id="price" name="price" [(ngModel)]="coupon.price" placeholder="price"  required>
+          <input type="text"  id="description" name="description" [(ngModel)]="coupon.description" placeholder="description"  required>
+          <input type="text" id="imgurl" name="imgurl" [(ngModel)]="coupon.imgurl" placeholder="image"  required>
+        <button>Add Coupon</button>
+        
+      </form>
+    </div>
+  </div>

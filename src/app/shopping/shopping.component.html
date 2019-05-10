@@ -1,0 +1,20 @@
+<div class="row">
+  
+<div *ngFor="let customer of customers">
+    
+    <div *ngIf="customer.category==='Shopping'">
+       
+      
+    <img class="card-img-top" src="{{customer.imgurl}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><b>{{customer.name}}</b></h5>
+      <p class="card-text">{{customer.description}}</p>
+      <p class="card-text"><b>Price: ₹ </b>{{customer.price}}</p>
+      <a (click)="addcart(customer.id)" *ngIf="readValue('role')=='customer'" routerLinkActive="active" class="btn btn-primary">Add to Cart</a>
+      <button (click)="deleteCustomer()" *ngIf="readValue('role')=='admin'">Delete</button>
+    </div>
+  </div>
+  
+
+</div>
+</div>

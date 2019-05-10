@@ -1,0 +1,21 @@
+<h3><b>Your Cart</b></h3>
+<div class="row">
+  
+    <div *ngFor="let cart of carts">
+        
+        <div *ngIf="cart.uname===getuname('ankit')">
+           
+          
+        <img class="card-img-top" src="{{cart.coupon.imgurl}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><b>{{cart.coupon.name}}</b></h5>{{cart.id}}
+          <p class="card-text">{{cart.coupon.description}}</p>
+          <p class="card-text"><b>Price: ₹ </b>{{cart.coupon.price}}</p>
+          <a   [routerLink]="['/payment']" *ngIf="readValue('role')=='customer'" routerLinkActive="active" class="btn btn-primary">Buy Now</a>&nbsp;
+          <button (click)="deleteItem(cart.id)" class="btn btn-primary" >Delete</button>
+        </div>
+      </div>
+      
+    
+    </div>
+    </div>

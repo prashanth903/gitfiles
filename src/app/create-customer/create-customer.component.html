@@ -1,0 +1,140 @@
+<!-- 
+ <div class="login-wrap">
+    <div class="login-html"> 
+<div [hidden]="submitted" style="width: 300px;" class="center">
+  <div class="login-form">
+  <form [formGroup]="f1" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+      <label for="name">Firstname</label>
+      <input type="text" class="form-control" id="name" formControlName="name"  [(ngModel)]="customer.name" name="name">
+    </div>
+    <div *ngIf="f1.controls['name'].invalid && (f1.controls['name'].dirty || f1.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="f1.controls['name'].errors.required">
+          name is required.
+        </div>
+      </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email"  formControlName="email"  [(ngModel)]="customer.email" name="email">
+    </div>
+
+    <div *ngIf="f1.controls['email'].invalid && (f1.controls['email'].dirty || f1.controls['email'].touched)" class="alert alert-danger">
+        <div *ngIf="f1.controls['email'].errors.required">Email is required.</div>
+        <div *ngIf="f1.controls['email'].errors.pattern">
+              Email should be like in this [anything@gmail.com]
+        </div>
+</div>
+
+
+
+
+	<div class="form-group">
+      <label for="uname">username</label>
+      <input type="text" class="form-control" id="uname" formControlName="uname"  [(ngModel)]="customer.uname" name="name">
+    </div>
+
+    
+    <div *ngIf="f1.controls['uname'].invalid && (f1.controls['uname'].dirty || f1.controls['uname'].touched)" class="alert alert-danger">
+        <div *ngIf="f1.controls['uname'].errors.required">
+            uname is required.
+        </div>
+      </div>
+
+    <div class="form-group">
+      <label for="pass">password</label>
+      <input type="text" class="form-control" id="pass" formControlName="pass" [(ngModel)]="customer.pass" name="age">
+      <div *ngIf="f1.controls['pass'].invalid && (f1.controls['pass'].dirty || f1.controls['pass'].touched)" class="alert alert-danger">
+          <div *ngIf="f1.controls['pass'].errors.required">
+              Password  is required.
+          </div>
+          <div *ngIf="f1.controls['pass'].errors.maxlength">
+                Maximum characters for password is 10
+          </div>
+          <div *ngIf="f1.controls['pass'].errors.minlength">
+                Minimum characters for password is 6
+          </div>
+          <div *ngIf="f1.controls['pass'].errors.pattern">
+                Password should comprised of atleast one lowercase, uppercase and number
+          </div>
+  </div>
+
+    </div>
+
+
+    
+
+    <button type="submit" class="btn btn-success" [disabled]="f1.invalid">Submit</button>
+  </form>
+</div>
+<div class="form-group">
+    <a [routerLink]="['/findbyage']" class="btn btn-success" role="button" routerLinkActive="active">Login</a>
+</div>
+
+<div *ngIf=check>
+  <h4>You submitted successfully!</h4>
+  <a [routerLink]="['/findbyage']" class="btn btn-success" role="button" routerLinkActive="active">Login</a>
+</div>
+</div> 
+</div>
+</div>  -->
+
+
+
+
+
+
+
+
+
+
+  <div class="login-wrap">
+    <div class="login-html">
+      <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign Up</label>
+      <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign In</label>
+      <div class="login-form">
+        <form (ngSubmit)="onSubmit()" ngNativeValidate>
+        <div class="sign-in-htm">
+            <div class="group">
+                <label for="user" class="label">Name</label>
+                <input type="text" class="input" id="uname" name="uname" [(ngModel)]="customer.name"  required>
+              </div>
+              
+              <div class="group">
+                  <label for="user" class="label">Email</label>
+                  <input type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Email should be like abc@gmail.com" class="input" id="uname" name="uname" [(ngModel)]="customer.email"  required>
+
+                </div>
+          <div class="group">
+            <label for="user" class="label">Username</label>
+            <input type="text" class="input" id="uname" name="uname" [(ngModel)]="customer.uname"  required>
+          </div>
+          <div class="group">
+            <label for="pass" class="label">Password</label>
+            <input type="password" minlength="6" maxlength="15" class="input" id="pass" name="pass" [(ngModel)]="customer.pass"  required>
+          
+          </div>
+          
+          <div class="group">
+            <input type="submit" class="button" value="Sign Up">
+          </div>
+          <div *ngIf=check>
+              <h4 class="text-success">You submitted successfully!</h4>
+              <a [routerLink]="['/findbyage']" class="btn btn-success" role="button" routerLinkActive="active">Login</a>
+            </div>
+          <div class="hr"></div>
+        </div>
+      </form>
+        <div class="sign-up-htm">
+          
+          <div class="group">
+            <a [routerLink]="['/findbyage']" routerLinkActive="active"><input type="submit" class="button" value="Sign In" [disabled]="customer.invalid"></a>
+          </div>
+          <div class="hr"></div>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>  
+     

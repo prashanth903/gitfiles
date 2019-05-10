@@ -1,0 +1,64 @@
+<!-- <h3>Login</h3>
+<div style="width: 300px;" class="center">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="lastname">Username</label>
+      <input type="text" class="form-control" id="uname" name="uname" [(ngModel)]="customer.uname"  required>
+    </div>
+<div class="form-group">
+      <label for="lastname">Password</label>
+      <input type="text" class="form-control" id="pass" name="pass" [(ngModel)]="customer.pass"  required>
+    </div>
+    <div class="btn-group">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </form>
+</div>
+<ul>
+  <li *ngFor="let customer of customers">
+    <h4>{{customer.id}} - {{customer.name}} {{customer.email}}</h4>
+  </li>
+</ul>
+<h3>{{username}}</h3> -->
+
+
+<div class="login-wrap">
+	<div class="login-html">
+    <h3><b>Customer</b></h3>
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-form">
+			
+				
+      <form (ngSubmit)="onSubmit()" ngNativeValidate>
+			<div class="sign-in-htm">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input type="text" class="input" id="uname" name="uname" [(ngModel)]="customer.uname"  required>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input type="password"class="input" id="pass" name="pass" [(ngModel)]="customer.pass"  required>
+        </div>
+       <p>{{username}}</p>
+				<div class="group">
+            <button type="submit" class="button">Submit</button>
+        </div>
+        
+				<div class="hr"></div>
+      </div>
+    </form>
+			<div class="sign-up-htm">
+				
+				<div class="group">
+					<a [routerLink]="['/add']" routerLinkActive="active"><input type="submit" class="button" value="Sign Up"></a>
+				</div>
+				<div class="hr"></div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<router-outlet></router-outlet>

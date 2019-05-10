@@ -1,0 +1,25 @@
+
+<div class="container">
+<div class="row">
+  
+  
+    <div *ngIf="customer" >
+       
+      
+        <img class="card-img-top" src="{{customer.imgurl}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><b>{{customer.name}}</b></h5>
+          <p class="card-text">{{customer.description}}</p>
+          <p class="card-text"><b>Price: ₹ </b>{{customer.price}}</p>
+          <a (click)="addcart(customer.id)" *ngIf="readLocalStorageValue('role')=='customer'" routerLinkActive="active" class="btn btn-primary">Add to Cart</a>
+        <button *ngIf="readLocalStorageValue('role')=='admin'" (click)="deleteCustomer()">Delete Coupon</button>
+      </div>
+    </div>  
+      
+      
+    
+    
+  </div>
+  
+
+</div>
